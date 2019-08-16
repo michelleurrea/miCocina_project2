@@ -13,7 +13,7 @@ nav {
 nav ul {
     margin: 0;
     display: inline;
-    padding-left: 0px;  
+    padding-left: 0px;
 }
 
 nav ul li {
@@ -48,11 +48,11 @@ form {
 }
 
 .credentials-form input {
-    max-width: 50%;
+    max-width: 100%;
     margin: 10px 0px;
     padding: 1%;
 }
 
 .credentials-form input[type=submit] {
-    max-width: 75px;
+    padding: 20px;
 }
