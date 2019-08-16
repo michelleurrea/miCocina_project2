@@ -1,3 +1,4 @@
+const db = require('../models');
 const router = require('express').Router();
 
 router.get('/signup', (req, res) => {
@@ -5,7 +6,48 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-    res.send(req.body);
+  if (req.body.password !== req.body.password_verify) {
+    req.flash('error', 'Passwords do not match!');
+    console.log('BIRTHDAY', req.body.birthday)
+    res.redirect('/auth/signup');
+  }
+  else {
+    // Passwords matched, create user if they don't already exist
+    db.user.findOrCreate({
+      where: { email: req.body.email },
+      defaults: req.body
+    })
+    .spread((user, wasCreated) => {
+      if (wasCreated) {
+        // This was legitimately a new user, so they got created
+        res.send('Successful creation of user. TODO: Automatically log in now');
+      }
+      else {
+        // The user was found; don't let them create a new account, make them log in
+        req.flash('error', 'Account already exists. Please log in!');
+        res.redirect('/auth/login');
+      }
+    })
+    .catch(err => {
+      // Print ALL the error info to the console
+      console.log('Error in POST /auth/signup', err);
+
+      // Generic error for the flash message
+      req.flash('error', 'Something went awry! :(');
+
+      // Get validation-speciic errors (okay to show to the user)
+      if (err && err.errors) {
+        err.errors.forEach(e => {
+          if (e.type === 'Validation error') {
+            req.flash('error', 'Validation issue - ' + e.message);
+          }
+        });
+      }
+
+      // Redirect user back to the sign up page so they can try again
+      res.redirect('/auth/signup');
+    })
+  }
 })
 
 router.get('/login', (req, res) => {
