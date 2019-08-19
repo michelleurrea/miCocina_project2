@@ -98,3 +98,27 @@ h1 {
 .left {
   float: left;
 }
+
+.banner {
+  background-color: hotpink;
+  color: chartreuse;
+  font-weight: bold;
+  padding: 20px;
+  margin: 0;
+}
+
+.close-button {
+  float: right;
+  cursor: pointer;
+}
+
+footer {
+  background-color: rebeccapurple;
+  font-size: 32px;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
