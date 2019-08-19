@@ -34,18 +34,18 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
-app.use('/profile', require('./controllers/profile'))
+app.use('/profile', require('./controllers/profile'));
 
 // Routes
 app.get('/', (req, res) => {
     res.render('home');
-})
+});
 
 app.get('*', (req, res) => {
     res.render('404');
-})
+});
 
 // LISTEN!
 app.listen(process.env.PORT, () => {
     console.log("☕ Server is now running at port", process.env.PORT);
-})
+});
