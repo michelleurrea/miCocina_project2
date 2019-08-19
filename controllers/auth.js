@@ -1,4 +1,5 @@
 const db = require('../models');
+const passport = require('../config/passportConfig');
 const router = require('express').Router();
 
 router.get('/signup', (req, res) => {
@@ -54,9 +55,12 @@ router.get('/login', (req, res) => {
     res.render('auth/login');
 })
 
-router.post('/login', (req, res) => {
-    res.send('Stub - ToDo: Log in, then redirect');
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/profile',
+  successFlash: 'Yay you logged in successfully!',
+  failureRedirect: '/auth/login',
+  failureFlash: 'Invalid Credentials!'
+}));
 
 router.get('/logout', (req, res) => {
     res.render('auth/logout');
