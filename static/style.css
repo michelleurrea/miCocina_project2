@@ -83,3 +83,17 @@ h1 {
   text-align: center;
   color: rebeccapurple;
 }
+
+.left,
+.right {
+  padding: 15px;
+}
+
+.left img {
+  width: 150px;
+  height: auto;
+}
+
+.left {
+  float: left;
+}
