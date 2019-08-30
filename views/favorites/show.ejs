@@ -6,6 +6,9 @@
     <img src="<%= f.image %>" alt="image of favorited recipe">
     <p><%= f.serving %></p>
     <a href="<%= f.url %>">Click here to view the recipe</a>
+    <form method="POST" action="/favorites/<%= f.id %>?_method=DELETE">
+        <input type="submit" value="Delete">
+    </form>
     <br>
   <% }) %>
 </p>

@@ -44,4 +44,16 @@ router.post('/', (req, res) => {
 	})
 });
 
+router.delete('/:id', (req, res) => {
+	db.usersFavorites.destroy({
+		where : { favoriteId: req.params.id }
+	})
+	.then(() => {
+		res.redirect('/favorites');
+	})
+	.catch(function(error){
+		console.log(error);
+	})
+});
+
 module.exports = router;
