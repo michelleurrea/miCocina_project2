@@ -2,7 +2,7 @@
     <ul>
         <% if (currentUser && currentUser.firstname) { %>
             <li>
-                <a href="/profile">Welcome back chef <%= currentUser.firstname %>!</a>
+                <a href="/profile">Welcome back Chef <%= currentUser.username %>!</a>
             </li>
         <% } %>
         <li>

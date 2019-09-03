@@ -10,7 +10,7 @@ router.post('/results', (req, res) => {
 	let q = req.body.recipe;
 	let app_key = process.env.APP_KEY;
 	let app_id = process.env.APP_ID;
-	let url = `https://api.edamam.com/search?q=${q}&app_id=${app_id}&app_key=${app_key}`;
+	let url = `https://api.edamam.com/search?q=${q}&app_id=${app_id}&app_key=${app_key}&from=0&to=20`;
 	
 	axios.get(url)
 	.then(response => {
