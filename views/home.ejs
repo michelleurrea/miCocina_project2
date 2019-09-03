@@ -1,1 +1,7 @@
-<h1>This is the home page!</h1>
+<h1>Welcome to Mi Cocina!</h1>
+
+ <% if (currentUser) { %>
+	<p>Welcome to Mi Cocina, the app that allows you to look up some delicious recipes, add your favorites, and build your virtual cookbook.</p>
+<% } else { %>
+	<p>Log in or sign up to and let's start cooking!</p>
+<% } %>

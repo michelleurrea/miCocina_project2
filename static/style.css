@@ -2,13 +2,17 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: orange;
 }
 
 nav {
-    background-color: rebeccapurple;
+    background-image: linear-gradient(-90deg, red, yellow);
     font-size: 32px;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
 }
 
 nav ul {
@@ -23,17 +27,17 @@ nav ul li {
 }
 
 nav ul li a {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Sofia';
     color: white;
     text-decoration: none;
     margin-right: 10px;
 }
 
 nav a:hover {
-    color: chartreuse;
+    color: #B8860B;
 }
 
-form {
+#signup, #login {
     font-size: 18px;
     display: flex;
     flex-direction: column;
@@ -44,8 +48,22 @@ form {
     box-shadow: 10px 5px 5px black;
     border-radius: 25px;
     padding: 2%;
-    background-image: linear-gradient(to bottom right, cyan, blue);
+    background-image: linear-gradient(to bottom right, pink, red);
     /* background-image: repeating-linear-gradient(red, yellow 10%, green 20%); */
+}
+
+#search {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 10vh;
+  width: 50vw;
+  margin: 0 auto;
+  border: 1px solid grey;
+  box-shadow: 10px 5px 5px black;
+  border-radius: 25px;
+  padding: 2%;
+  background-image: linear-gradient(to bottom right, pink, red);
 }
 
 .credentials-form input {
@@ -72,17 +90,24 @@ form {
   padding: 30px 50px;
 }
 
+
+p {
+  color: red;
+  font-family: 'Sofia';
+}
+
 .container {
   margin: 0 15%;
   padding-top: 20px;
-  background-color: lavender;
-  height: 100vh;
+  background-color: white;
+  height: 100%;
 }
 
-h1 {
+h1, h2 {
   margin-top: 0;
   text-align: center;
-  color: rebeccapurple;
+  color: #B8860B;
+  font-family: 'Beth Ellen';
 }
 
 .left,
@@ -113,12 +138,20 @@ h1 {
 }
 
 footer {
-  background-color: rebeccapurple;
-  font-size: 32px;
+  background-image: linear-gradient(-90deg, yellow, red);
+  font-size: 16px;
   color: white;
-  padding: 10px;
+  /*padding: 10px;*/
   position: fixed;
   bottom: 0;
   width: 100%;
+  text-align: center;
+}
+
+#results {
+  text-align: center;
+}
+
+#favorites {
   text-align: center;
 }
